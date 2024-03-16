@@ -6,7 +6,6 @@ public class Main {
         char[][] board = initializeBoard();
         char[] teams = chooseTeam();
         gaming(board, teams);
-
     }
 
     public static char[][] initializeBoard() {
@@ -66,7 +65,45 @@ public class Main {
                 board[a][b] = teams[1];//Teams 1 is the team of the rival
             }
             turn++;
+            if (winner(board)){
+                break;
+            }
         }
-        printBoard(board);
+    }
+    public static boolean winner (char[][]board) {
+        if (board[0][0]==board[0][1] && board[0][0]==board[0][2] && board[0][0]!='_') {
+            printBoard(board);
+            System.out.println(board[0][0]+" is the winner!");
+            return true;
+        } else if (board[0][0]==board[1][1] && board[0][0]==board[2][2] && board[0][0]!='_') {
+            printBoard(board);
+            System.out.println(board[0][0]+" is the winner!");
+            return true;
+        } else if (board[0][2]==board[1][1] && board[0][2]==board[2][0] && board[0][2]!='_') {
+            printBoard(board);
+            System.out.println(board[0][2]+" is the winner!");
+            return true;
+        } else if (board[2][0]==board[2][1] && board[2][0]==board[2][2] && board[2][0]!='_') {
+            printBoard(board);
+            System.out.println(board[2][0]+" is the winner!");
+            return true;
+        } else if (board[0][0]==board[1][0] && board[0][0]==board[2][0] && board[0][0]!='_') {
+            printBoard(board);
+            System.out.println(board[0][0]+" is the winner!");
+            return true;
+        } else if (board[0][2]==board[1][2] && board[0][2]==board[2][2] && board[0][2]!='_') {
+            printBoard(board);
+            System.out.println(board[0][2]+" is the winner!");
+            return true;
+        } else if (board[1][0]==board[1][1] && board[1][0]==board[1][2] && board[1][0]!='_') {
+            printBoard(board);
+            System.out.println(board[1][0]+" is the winner!");
+            return true;
+        } else if (board[0][1]==board[1][1] && board[0][1]==board[2][1] && board[0][1]!='_') {
+            printBoard(board);
+            System.out.println(board[0][1]+" is the winner!");
+            return true;
+        }
+        return false;
     }
 }
